@@ -1,0 +1,1 @@
+#### Basic project to learn PostgreSQL, Prisma ORM using typescript.
