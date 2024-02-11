@@ -1,23 +1,25 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient()
+import { createUser, CreateUserData } from "./createUser";
+import { deleteUser, DeleteUserData } from "./deleteUser";
+import { updateUser, UpdateUserData, UserData } from "./updateUser";
+import { getAllUsers, getUser, User } from "./getUsers";
 
-interface User {
-    name: string,
-    password: string
+
+
+
+const createUserData: CreateUserData = {
+    name: "Akash",
+    username: "akash20",
+    password: "12345",
+    role: "BASIC"
 }
 
-async function createUser(user: User){
-    const response = await prisma.user.create({
-        data: user
-    })
-
-    console.log(response)
+const getUserData: User = {
+    username: "manik17"
 }
 
-createUser({name: "Manik", password: "12345"})
-.catch((e)=>{
-    console.error(e.message);
-})
-.finally(async ()=>{
-    await prisma.$disconnect()
-})
+const deleteUserData: DeleteUserData = {
+    username: "rudra10"
+}
+
+createUser(createUserData)
+
